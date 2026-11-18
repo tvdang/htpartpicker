@@ -24,3 +24,53 @@ body {
     text-wrap: balance;
   }
 }
+
+@media print {
+  @page {
+    margin: 0.5in;
+  }
+
+  body:has(.build-page) * {
+    visibility: hidden !important;
+  }
+
+  body:has(.build-page) .build-page,
+  body:has(.build-page) .build-page * {
+    visibility: visible !important;
+  }
+
+  body:has(.build-page) .build-page {
+    position: absolute !important;
+    inset: 0 auto auto 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  body:has(.build-page) .build-page .overflow-x-auto {
+    overflow: visible !important;
+  }
+
+  body:has(.build-page) .build-page table {
+    width: 100% !important;
+    white-space: normal !important;
+    border-collapse: collapse !important;
+  }
+
+  body:has(.build-page) .build-page th,
+  body:has(.build-page) .build-page td {
+    border: 1px solid #666 !important;
+    padding: 6px !important;
+    color: #000 !important;
+    background: #fff !important;
+    white-space: normal !important;
+  }
+
+  body:has(.build-page) .build-page a {
+    color: #000 !important;
+    text-decoration: underline !important;
+  }
+}

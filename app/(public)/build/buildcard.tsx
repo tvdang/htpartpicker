@@ -58,7 +58,7 @@ function PreviewDialog({
 }: {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  exportOption: "markdown" | "html" | "text" | "pdf" | "history" | null;
+  exportOption: "markdown" | "html" | "text" | "history" | null;
 }) {
   if (!exportOption) return null;
   return (
@@ -82,7 +82,7 @@ function PreviewDialog({
 export default function BuildCard() {
   const [isOpen, setIsOpen] = useState(false);
   const [exportOption, setExportOption] = useState<
-    "markdown" | "html" | "text" | "pdf" | "history" | null
+    "markdown" | "html" | "text" | "history" | null
   >(null);
 
   useEffect(() => {
@@ -93,7 +93,7 @@ export default function BuildCard() {
 
   return (
     <>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 print:hidden">
         <div className="flex space-x-2">
           <Input value="htpartpicker.com/builds/abcdef" />
           <CopyToClipboardButton text="testing" />
@@ -115,7 +115,7 @@ export default function BuildCard() {
             <Bars3BottomLeftIcon />
             <span className="hidden sm:block">Text</span>
           </Button>
-          <Button outline onClick={() => setExportOption("pdf")}>
+          <Button outline onClick={() => window.print()}>
             <PaperClipIcon />
             <span className="hidden sm:block">PDF</span>
           </Button>

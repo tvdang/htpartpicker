@@ -7,7 +7,7 @@ type Item = {
   description: string;
 };
 
-const items = [
+const items = ([
   {
     name: "Display",
     quantity: "single",
@@ -92,7 +92,17 @@ const items = [
     description:
       "The right speaker wire is crucial for connecting your speakers to the AV receiver and ensuring optimal sound quality. The gauge (thickness) of the wire should be appropriate for the length of the run and the power of your amplifier. Thicker wires (lower gauge numbers) are better for longer distances and higher power applications. Oxygen-free copper (OFC) is a popular choice for its low resistance and minimal signal degradation. For in-wall installations, use UL-rated speaker wire for safety and compliance with building codes. The wire should be properly insulated to reduce the risk of signal interference from other electronic devices. When connecting, ensure the polarity is consistent across all speakers to avoid phase issues. Neat cable management not only looks better but can also prevent accidental damage or disconnections.",
   },
-] as Item[];
+  {
+    name: "Sound Panel",
+    quantity: "multiple",
+    type: "accessory",
+    description:
+      "Acoustic sound panels help reduce reflections and control reverberation in a home theater. Choose panels designed for the frequencies you want to treat, and place them at reflection points on the walls or ceiling. The number and placement of panels depend on the room and desired acoustic results.",
+  },
+] as Item[]).filter(
+  (item) =>
+    !["HDMI Cable", "Speaker Wire", "MiniDSP"].includes(item.name)
+);
 
 type Category = {
   name: string;

@@ -26,6 +26,16 @@ The backend: **SUPABASE**. These guys are seriously the goats. The whole backend
 
 ## Getting Started
 
+Create a `.env.local` file in the project root and add your Supabase project URL
+and anon key. You can find these in your Supabase project's API settings:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
+Restart the development server after adding or changing these values.
+
 If you want to use serverless functions locally, which probably doesn't apply to anyone reading this, you can run the Vercel dev environment directly:
 
 ```bash
